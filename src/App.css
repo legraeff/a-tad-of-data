@@ -1,0 +1,61 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+.App-header-pun {
+  width: 50%;
+  margin: 0 auto;
+}
+.App-header-pun h1 {
+  margin: 0;
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  animation: scramble-word 2s 2s ease-in forwards;
+  font-size: 60px;
+  display: inline-block;
+}
+
+@keyframes scramble-word {
+  0% {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+    letter-spacing: normal;
+  }
+  30% {
+    letter-spacing: -30px;
+  }
+  60% {
+    direction: ltr;
+    unicode-bidi: normal;
+    letter-spacing: normal;
+  }
+  100% {
+    direction: ltr;
+    unicode-bidi: normal;
+    letter-spacing: normal;
+  }
+}
+.App-header-pun span {
+  animation: separate-word 2s 1s forwards;
+}
+
+@keyframes separate-word {
+  from {
+    margin: 0;
+  }
+  to {
+    margin-right: 15px;
+  }
+}
+.App-title {
+  font-size: 1.5em;
+}

@@ -1,0 +1,21 @@
+.Listing {
+  position: relative;
+  list-style: none;
+  margin: 0 auto;
+  display: block;
+}
+.Listing a {
+  font-size: 1em;
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+  background: #222;
+  color: white;
+  padding: 10px;
+  border: 2px solid white;
+  transition: .25s all;
+}
+.Listing a:hover {
+  font-size: 1.5em;
+  letter-spacing: 2px;
+}

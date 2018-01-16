@@ -1,0 +1,35 @@
+.Background {
+  height: 400px;
+  width: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.Background h1 {
+  margin: 0 auto;
+  font-size: 3em;
+  color: white;
+  border: 5px solid white;
+  border-left: 0;
+  border-right: 0;
+  padding: 10px;
+  transition: all .5s;
+}
+.Background h1:hover {
+  background: white;
+  color: #222;
+}
+
+
+
+.BackgroundDescription {
+  background: #222;
+  color: white;
+  padding: 10px;
+  line-height: 1.5em;
+  font-size: .75em;
+  text-align: right;
+}
+.BackgroundDescription span {
+  font-size: 1em;
+  font-weight: bold;
+}
