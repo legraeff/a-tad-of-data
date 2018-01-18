@@ -8,6 +8,7 @@ class Background extends Component {
       picture: '',
       copyright: '',
       title: '',
+      explanation: '',
     }
   }
 
@@ -21,6 +22,7 @@ class Background extends Component {
           copyright: data.copyright,
           title: data.title,
           picture: data.url,
+          explanation: data.explanation
         });
       });
   }
@@ -30,8 +32,14 @@ class Background extends Component {
       <div>
         <div className="Background" style={{backgroundImage: "url(" + this.state.picture + ")"}}>
           <h1> {this.state.title} </h1></div>
-        <div className="BackgroundDescription"> this beautiful image is only here due to:
-          <span> {this.state.copyright} </span> </div>
+        <div className="BackgroundCredit"> this beautiful image is only here due to:
+          <span> {this.state.copyright} </span>
+        </div>
+        <div className="BackgroundDescription">
+          <h2 className="BackgroundDescriptionTitle"> the science behind </h2>
+          <span> {this.state.explanation} </span>
+        </div>
+
       </div>
    )
   }

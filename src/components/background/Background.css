@@ -1,6 +1,7 @@
 .Background {
   height: 400px;
   width: 100%;
+  background-color: #222;
   background-attachment: fixed;
   background-size: cover;
 }
@@ -15,13 +16,26 @@
   transition: all .5s;
 }
 .Background h1:hover {
-  background: white;
+  background: #97f797;
   color: #222;
+  border-color: #97f797;
 }
 
-
-
 .BackgroundDescription {
+  background: #222;
+  color: white;
+  font-size: 1.1em;
+  padding: 0px 20px 20px 20px;
+  text-align: justify;
+  line-height: 1.5em;
+}
+.BackgroundDescriptionTitle {
+  margin: 0 0 10px 0px;
+  font-size: 1.5em;
+  color: #97f797;
+}
+
+.BackgroundCredit {
   background: #222;
   color: white;
   padding: 10px;
@@ -29,7 +43,7 @@
   font-size: .75em;
   text-align: right;
 }
-.BackgroundDescription span {
+.BackgroundCredit span {
   font-size: 1em;
   font-weight: bold;
 }

@@ -12,7 +12,6 @@
   color: white;
 }
 .App-header-pun {
-  width: 50%;
   margin: 0 auto;
 }
 .App-header-pun h1 {
@@ -35,17 +34,14 @@
   }
   60% {
     direction: ltr;
-    unicode-bidi: normal;
     letter-spacing: normal;
   }
   100% {
     direction: ltr;
-    unicode-bidi: normal;
-    letter-spacing: normal;
   }
 }
 .App-header-pun span {
-  animation: separate-word 2s 1s forwards;
+  animation: separate-word 1s 2s forwards;
 }
 
 @keyframes separate-word {
@@ -58,4 +54,11 @@
 }
 .App-title {
   font-size: 1.5em;
+}
+
+::selection {
+  background: #ffb7b7; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #ffb7b7; /* Gecko Browsers */
 }
