@@ -22,6 +22,8 @@
   padding: 5px 10px;
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: #FFF;
 
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
@@ -54,13 +56,6 @@
   transition-timing-function: ease-out;
 }
 
-.nav-item a {
-  text-decoration: none;
-  color: #FFF;
-}
-.nav-item:hover a {
-  color: #FFF;
-}
 .nav-item:hover::before {
   -webkit-transform: scaleY(1);
   transform: scaleY(1);

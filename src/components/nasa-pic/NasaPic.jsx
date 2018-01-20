@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './NasaPic.css'; // Tell Webpack that NasaPic.js uses these styles
+import * as Vibrant from 'node-vibrant'
 
 class NasaPic extends Component {
   constructor(props) {
     super();
     this.state = {
+      textColor: '',
       picture: '',
-      copyright: '',
-      title: '',
+      copyright: 'a very talented person',
+      title: '...',
       explanation: '',
     }
   }
@@ -18,6 +20,7 @@ class NasaPic extends Component {
       .then(results => {
         return results.json();
       }).then(data => {
+        Vibrant.from(data.url).getPalette((err, palette) => this.setState({textColor: palette.Muted.getHex()}));
         this.setState({
           copyright: data.copyright,
           title: data.title,
@@ -31,12 +34,13 @@ class NasaPic extends Component {
     return(
       <div>
         <div className="Image" style={{backgroundImage: "url(" + this.state.picture + ")"}}>
-          <h1> {this.state.title} </h1></div>
+          <h1 onMouseOver={(e) => {e.target.style.color = this.state.textColor;}} onMouseOut={(e) => {e.target.style.color = '#fff';}} > {this.state.title} </h1>
+        </div>
         <div className="ImageCredit"> this beautiful image is only here due to:
           <span> {this.state.copyright} </span>
         </div>
         <div className="ImageDescription">
-          <h2 className="ImageDescriptionTitle"> the science behind </h2>
+          <h2 style={{color: this.state.textColor}} className="ImageDescriptionTitle"> the science behind </h2>
           <span> {this.state.explanation} </span>
         </div>
 

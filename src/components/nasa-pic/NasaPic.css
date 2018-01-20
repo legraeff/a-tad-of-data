@@ -16,9 +16,9 @@
   transition: all .5s;
 }
 .Image h1:hover {
-  background: #97f797;
+  background: #fff;
   color: #222;
-  border-color: #97f797;
+  border-color: #fff;
 }
 
 .ImageDescription {
@@ -32,7 +32,7 @@
 .ImageDescriptionTitle {
   margin: 0 0 10px 0px;
   font-size: 1.5em;
-  color: #97f797;
+  color: #fff;
 }
 
 .ImageCredit {
