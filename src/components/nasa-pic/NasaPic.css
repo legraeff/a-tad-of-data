@@ -43,7 +43,10 @@
   font-size: .75em;
   text-align: right;
 }
-.ImageCredit span {
+.ImageCredit a {
+  margin-left: 5px;
+  cursor: pointer;
+  text-decoration: underline;
   font-size: 1em;
   font-weight: bold;
 }

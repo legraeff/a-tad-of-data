@@ -11,8 +11,14 @@ class NasaPic extends Component {
       copyright: 'a very talented person',
       title: '...',
       explanation: '',
-    }
+    };
+    this.goToGoogle = this.goToGoogle.bind(this);
   }
+  goToGoogle() {
+    var search = this.state.copyright.replace(/\s+/g, '+').toLowerCase();
+    window.open('https://www.google.com.br/search?q=' + search)
+  };
+
 
   componentDidMount() {
 
@@ -20,7 +26,6 @@ class NasaPic extends Component {
       .then(results => {
         return results.json();
       }).then(data => {
-
         Vibrant.from('https://cors.now.sh/' + data.url).getPalette((err, palette) => this.setState({textColor: palette.Muted.getHex()}));
         this.setState({
           copyright: data.copyright,
@@ -37,8 +42,8 @@ class NasaPic extends Component {
         <div className="Image" style={{backgroundImage: "url(" + this.state.picture + ")"}}>
           <h1 onMouseOver={(e) => {e.target.style.color = this.state.textColor;}} onMouseOut={(e) => {e.target.style.color = '#fff';}} > {this.state.title} </h1>
         </div>
-        <div className="ImageCredit"> this beautiful image is only here due to:
-          <span> {this.state.copyright} </span>
+        <div className="ImageCredit"> this beautiful image is only here due to: 
+          <a onClick={this.goToGoogle}>{this.state.copyright} </a>
         </div>
         <div className="ImageDescription">
           <h2 style={{color: this.state.textColor}} className="ImageDescriptionTitle"> the science behind </h2>
