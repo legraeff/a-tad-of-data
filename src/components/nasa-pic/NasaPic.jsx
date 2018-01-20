@@ -20,7 +20,8 @@ class NasaPic extends Component {
       .then(results => {
         return results.json();
       }).then(data => {
-        Vibrant.from(data.url).getPalette((err, palette) => this.setState({textColor: palette.Muted.getHex()}));
+
+        Vibrant.from('https://cors.now.sh/' + data.url).getPalette((err, palette) => this.setState({textColor: palette.Muted.getHex()}));
         this.setState({
           copyright: data.copyright,
           title: data.title,
