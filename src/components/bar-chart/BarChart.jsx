@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './BarChart.css'; // Tell Webpack that BarChart.js uses these styles
-import { scaleLinear, scaleBand } from 'd3-scale';
+import { scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
 import { select } from 'd3-selection';
-import { axisLeft } from 'd3-axis';
+// import { axisLeft } from 'd3-axis';
 
 class BarChart extends Component {
   constructor(props) {
@@ -19,10 +19,10 @@ class BarChart extends Component {
   componentDidUpdate() {
     this.dataArray = this.props.data;
     this.dataArray = this.props.data.map(function(item) {
-      if (isNaN(parseInt(item['height']))) {
-        return;
+      if (isNaN(parseInt(item['mass'], 10))) {
+        return undefined;
       }
-      return {"name": item.name, "height": parseInt(item['height'])};
+      return {"name": item.name, "height": parseInt(item['mass'], 10)};
     });
     this.dataArray = this.dataArray.filter(function(item) {
       return (item !== undefined);

@@ -6,11 +6,13 @@ class NasaPic extends Component {
   constructor(props) {
     super();
     this.state = {
+      mediaType: '',
       textColor: '',
       picture: '',
       copyright: 'a very talented person',
       title: '...',
       explanation: '',
+      video: ''
     };
     this.goToGoogle = this.goToGoogle.bind(this);
   }
@@ -26,23 +28,41 @@ class NasaPic extends Component {
       .then(results => {
         return results.json();
       }).then(data => {
-        Vibrant.from('https://cors.now.sh/' + data.url).getPalette((err, palette) => this.setState({textColor: palette.Muted.getHex()}));
+        if (data.media_type !== 'video') {
+          this.setState({picture: data.url})
+          Vibrant.from('https://cors.now.sh/' + data.url).getPalette((err, palette) => this.setState({textColor: palette.Muted.getHex()}));
+        }
         this.setState({
+          mediaType: data.media_type,
           copyright: data.copyright,
           title: data.title,
-          picture: data.url,
+          video: data.url + '&autoplay=1&controls=0&loop=1&showinfo=0',
           explanation: data.explanation
         });
       });
   }
 
   render() {
+    var background;
+    if (this.state.mediaType !== 'video') {
+      background =
+      <div className="Image" style={{background: "url(" + this.state.picture + ")"}}>
+        <h1 onMouseOver={(e) => {e.target.style.color = this.state.textColor;}} onMouseOut={(e) => {e.target.style.color = '#fff';}} > {this.state.title} </h1>
+      </div>
+    }
+    else {
+      background =
+      <div className="Image" style={{"background": "transparent"}}>
+        <h1> {this.state.title} </h1>
+        <div className="video-background">
+          <iframe src={this.state.video} frameBorder="0" title="videoBackground" allowFullScreen></iframe>
+        </div>
+      </div>
+    }
     return(
       <div>
-        <div className="Image" style={{backgroundImage: "url(" + this.state.picture + ")"}}>
-          <h1 onMouseOver={(e) => {e.target.style.color = this.state.textColor;}} onMouseOut={(e) => {e.target.style.color = '#fff';}} > {this.state.title} </h1>
-        </div>
-        <div className="ImageCredit"> this beautiful image is only here due to: 
+        {background}
+        <div className="ImageCredit"> this beautiful image is only here due to:
           <a onClick={this.goToGoogle}>{this.state.copyright} </a>
         </div>
         <div className="ImageDescription">

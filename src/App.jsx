@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/header/Header.jsx';
 import Content from './components/content/Content.jsx';
-import Button from './components/button/Button.jsx';
 
 class App extends Component {
   constructor(props) {
