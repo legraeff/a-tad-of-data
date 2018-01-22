@@ -9,14 +9,21 @@ class StarWars extends Component {
       planets: [],
       people: [],
       barData: [1, 2, 3],
+      displayedData: 'mass',
     }
     this.planets = [];
     this.people = [];
+    this.changeData = this.changeData.bind(this);
   }
 
   componentDidMount() {
     this.getData('https://swapi.co/api/planets/', 'planets', this.planets);
     this.getData('https://swapi.co/api/people/', 'people', this.people);
+  }
+
+  changeData(name) {
+    this.setState({displayedData: name});
+    console.log(this.state.displayedData);
   }
 
   getData(url, key, array) {
@@ -39,7 +46,10 @@ class StarWars extends Component {
   render() {
     return(
       <div>
-        <BarChart data={this.state.people} size={[7500,500]} />
+        <a onClick={() => this.changeData("height")}> height </a>
+        <a onClick={() => this.changeData("mass")}> mass </a>
+
+        <BarChart data={this.state.people} attr={this.state.displayedData} size={[7500,500]}  />
       </div>
    )
   }

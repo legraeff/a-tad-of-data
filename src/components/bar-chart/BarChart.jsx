@@ -4,6 +4,7 @@ import { scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
 import { select } from 'd3-selection';
 // import { axisLeft } from 'd3-axis';
+import { transition} from 'd3-transition';
 
 class BarChart extends Component {
   constructor(props) {
@@ -17,32 +18,33 @@ class BarChart extends Component {
   }
 
   componentDidUpdate() {
+    var attribute = this.props.attr;
     this.dataArray = this.props.data;
     this.dataArray = this.props.data.map(function(item) {
-      if (isNaN(parseInt(item['mass'], 10))) {
+      if (isNaN(parseInt(item[attribute], 10))) {
         return undefined;
       }
-      return {"name": item.name, "height": parseInt(item['mass'], 10)};
+      return {"name": item.name, [attribute]: parseInt(item[attribute], 10)};
     });
     this.dataArray = this.dataArray.filter(function(item) {
       return (item !== undefined);
     });
     this.dataArray.sort(function(a, b){
-      return a["height"] - b["height"];
+      return a[attribute] - b[attribute];
     });
     this.createBarChart();
   }
 
   createBarChart() {
     const node = this.node
+    var attribute = this.props.attr;
     var sizeOfData = this.dataArray.length;
     var widthOfSvg = this.props.size[0];
     var padding = 20;
     widthOfSvg = widthOfSvg - padding * sizeOfData;
     var widthOfBar = widthOfSvg / sizeOfData;
-
     var yScale = scaleLinear()
-        .domain([0, max(this.dataArray, function(d) { return d["height"]; })])
+        .domain([0, max(this.dataArray, function(d) { return d[attribute]; })])
         .range([0, this.props.size[1]])
 
     select(node)
@@ -62,8 +64,9 @@ class BarChart extends Component {
        .data(this.dataArray)
        .style('fill', '#884D52')
        .attr('x', (d,i) => (i * widthOfBar) + (i * padding))
-       .attr('y', d => this.props.size[1] - yScale(d["height"]))
-       .attr('height', d => yScale(d["height"]))
+       .transition().duration(750)
+       .attr('y', d => this.props.size[1] - yScale(d[attribute]))
+       .attr('height', d => yScale(d[attribute]))
        .attr('width', widthOfBar)
 
     select(node)
@@ -84,14 +87,15 @@ class BarChart extends Component {
         .style('fill', '#fff')
         .attr('x', (d,i) => (i * widthOfBar) + (i * padding))
         .attr('y', d => this.props.size[1])
-        .attr('height', d => yScale(d["height"]))
+        .transition().duration(750)
+        .attr('height', d => yScale(d[attribute]))
         .attr('width', widthOfBar + padding)
         .text( function (d) { return d["name"] })
 
   }
 
 
-  render() {
+    render() {
     return(
       <svg ref={node => this.node = node} width={this.props.size[0]} height={this.props.size[1]}> </svg>
    )
