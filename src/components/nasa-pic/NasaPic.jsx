@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import './NasaPic.css'; // Tell Webpack that NasaPic.js uses these styles
-import * as Vibrant from 'node-vibrant'
 
 class NasaPic extends Component {
   constructor(props) {
     super();
     this.state = {
       mediaType: '',
-      textColor: '',
       picture: '',
       copyright: 'a very talented person',
       title: '...',
@@ -30,7 +28,6 @@ class NasaPic extends Component {
       }).then(data => {
         if (data.media_type !== 'video') {
           this.setState({picture: data.url})
-          Vibrant.from('https://cors.now.sh/' + data.url).getPalette((err, palette) => this.setState({textColor: palette.Muted.getHex()}));
         }
         this.setState({
           mediaType: data.media_type,
@@ -47,7 +44,7 @@ class NasaPic extends Component {
     if (this.state.mediaType !== 'video') {
       background =
       <div className="Image" style={{background: "url(" + this.state.picture + ")"}}>
-        <h1 onMouseOver={(e) => {e.target.style.color = this.state.textColor;}} onMouseOut={(e) => {e.target.style.color = '#fff';}} > {this.state.title} </h1>
+        <h1> {this.state.title} </h1>
       </div>
     }
     else {
@@ -66,7 +63,7 @@ class NasaPic extends Component {
           <a onClick={this.goToGoogle}>{this.state.copyright} </a>
         </div>
         <div className="ImageDescription">
-          <h2 style={{color: this.state.textColor}} className="ImageDescriptionTitle"> the science behind </h2>
+          <h2 className="ImageDescriptionTitle"> the science behind </h2>
           <span> {this.state.explanation} </span>
         </div>
 
