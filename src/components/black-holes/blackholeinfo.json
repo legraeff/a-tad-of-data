@@ -1,0 +1,233 @@
+[
+  {
+    "name": "1A0620-00",
+    "Class": "A",
+    "Number of outbursts": 2,
+    "Discovery Year": 1975,
+    "Telescope": "Ariel V",
+    "Counterpart Spectral Type": "K5V",
+    "distance": 1.06,
+    "mass": 6.6,
+    "orbitalPeriod": 7.8
+  },
+  {
+    "name": "4U0538-641",
+    "Class": "A",
+    "Number of outbursts": 6,
+    "Discovery Year": 1971,
+    "Telescope": "UHURU",
+    "Counterpart Spectral Type": "B3V",
+    "distance": 48.1,
+    "mass": 6.95,
+    "orbitalPeriod": 40.9
+  },
+  {
+    "name": "4U0540-697",
+    "Class": "A",
+    "Number of outbursts": 2,
+    "Discovery Year": 1971,
+    "Telescope": "UHURU",
+    "Counterpart Spectral Type": "O7III",
+    "distance": 50,
+    "mass": 10.91,
+    "orbitalPeriod": 93.8
+  },
+  {
+    "name": "4U1543-475",
+    "Class": "A",
+    "Number of outbursts": 4,
+    "Discovery Year": 1971,
+    "Telescope": "UHURU",
+    "Counterpart Spectral Type": "A2V",
+    "distance": 7.5,
+    "mass": 9.4,
+    "orbitalPeriod": 26.8
+  },
+  {
+    "name": "4U1956+350",
+    "Class": "A",
+    "Number of outbursts": 2,
+    "Discovery Year": 1971,
+    "Telescope": "UHURU",
+    "Counterpart Spectral Type": "O9.7Iab",
+    "distance": 1.86,
+    "mass": 14.81,
+    "orbitalPeriod": 134.4
+  },
+  {
+    "name": "GROJ0422+32",
+    "Class": "A",
+    "Number of outbursts": 3,
+    "Discovery Year": 1992,
+    "Telescope": "CGRO",
+    "Counterpart Spectral Type": "M2V",
+    "distance": 2.49,
+    "mass": 3.69,
+    "orbitalPeriod": 5.1
+  },
+  {
+    "name": "GROJ1655-40",
+    "Class": "A",
+    "Number of outbursts": 3,
+    "Discovery Year": 1994,
+    "Telescope": "CGRO",
+    "Counterpart Spectral Type": "F6III",
+    "distance": "3,2",
+    "mass": 5.4,
+    "orbitalPeriod": 62.9
+  },
+  {
+    "name": "GRS1009-45",
+    "Class": "A",
+    "Number of outbursts": 1,
+    "Discovery Year": 1993,
+    "Telescope": "CGRO",
+    "Counterpart Spectral Type": "G5-K7V",
+    "distance": 3.82,
+    "mass": 5.95,
+    "orbitalPeriod": 6.8
+  },
+  {
+    "name": "GRS1915+105",
+    "Class": "A",
+    "Number of outbursts": 1,
+    "Discovery Year": 1992,
+    "Telescope": "GRANAT",
+    "Counterpart Spectral Type": "K0-7III",
+    "distance": 8.6,
+    "mass": 12.4,
+    "orbitalPeriod": 739
+  },
+  {
+    "name": "GS1124-684",
+    "Class": "A",
+    "Number of outbursts": 1,
+    "Discovery Year": 1991,
+    "Telescope": "GRANAT",
+    "Counterpart Spectral Type": "K3-4V",
+    "distance": 5.89,
+    "mass": 5.99,
+    "orbitalPeriod": 10.4
+  },
+  {
+    "name": "GS1354-64",
+    "Class": "A",
+    "Number of outbursts": 6,
+    "Discovery Year": 1987,
+    "Telescope": "GINGA",
+    "Counterpart Spectral Type": "G0-5III",
+    "distance": 25,
+    "mass": 7.47,
+    "orbitalPeriod": 61.1
+  },
+  {
+    "name": "GS2000+251",
+    "Class": "A",
+    "Number of outbursts": 1,
+    "Discovery Year": 1988,
+    "Telescope": "GINGA",
+    "Counterpart Spectral Type": "K3-6V",
+    "distance": 2.7,
+    "mass": 8.37,
+    "orbitalPeriod": 8.3
+  },
+  {
+    "name": "GS2023+338",
+    "Class": "A",
+    "Number of outbursts": 5,
+    "Discovery Year": 1989,
+    "Telescope": "GINGA",
+    "Counterpart Spectral Type": "K0IV",
+    "distance": 2.39,
+    "mass": 7.15,
+    "orbitalPeriod": 155.3
+  },
+  {
+    "name": "GX339-4",
+    "Class": "A",
+    "Number of outbursts": 21,
+    "Discovery Year": 1972,
+    "Telescope": "OSO7",
+    "Counterpart Spectral Type": "",
+    "distance": 8,
+    "mass": "",
+    "orbitalPeriod": 42.1
+  },
+  {
+    "name": "H1705-250",
+    "Class": "A",
+    "Number of outbursts": 1,
+    "Discovery Year": 1977,
+    "Telescope": "Ariel V",
+    "Counterpart Spectral Type": "K3-7V",
+    "distance": 8.6,
+    "mass": "",
+    "orbitalPeriod": 12.5
+  },
+  {
+    "name": "SAXJ1819.3-2525",
+    "Class": "A",
+    "Number of outbursts": 27,
+    "Discovery Year": 1999,
+    "Telescope": "BeppoSAX",
+    "Counterpart Spectral Type": "B9III",
+    "distance": 6.2,
+    "mass": 6.4,
+    "orbitalPeriod": 67.6
+  },
+  {
+    "name": "SWIFTJ1357.2-0933",
+    "Class": "A",
+    "Number of outbursts": 1,
+    "Discovery Year": 2011,
+    "Telescope": "Swift",
+    "Counterpart Spectral Type": "M4.5V",
+    "distance": "",
+    "mass": 12.4,
+    "orbitalPeriod": 2.8
+  },
+  {
+    "name": "XTEJ1118+480",
+    "Class": "A",
+    "Number of outbursts": 2,
+    "Discovery Year": 2000,
+    "Telescope": "RXTE",
+    "Counterpart Spectral Type": "K5V",
+    "distance": 1.72,
+    "mass": 6.27,
+    "orbitalPeriod": 4.1
+  },
+  {
+    "name": "XTEJ1550-564",
+    "Class": "A",
+    "Number of outbursts": 5,
+    "Discovery Year": 1998,
+    "Telescope": "CGRO",
+    "Counterpart Spectral Type": "K2-4III",
+    "distance": 4.4,
+    "mass": 10.39,
+    "orbitalPeriod": 37
+  },
+  {
+    "name": "XTEJ1650-500",
+    "Class": "A",
+    "Number of outbursts": 1,
+    "Discovery Year": 2001,
+    "Telescope": "RXTE",
+    "Counterpart Spectral Type": "G5-K4III",
+    "distance": 2.6,
+    "mass": 4.72,
+    "orbitalPeriod": 7.7
+  },
+  {
+    "name": "XTEJ1859+226",
+    "Class": "A",
+    "Number of outbursts": 1,
+    "Discovery Year": 1999,
+    "Telescope": "RXTE",
+    "Counterpart Spectral Type": "K5-7V",
+    "distance": 8,
+    "mass": 10.83,
+    "orbitalPeriod": 6.6
+  }
+]

@@ -43,7 +43,7 @@ class NasaPic extends Component {
     var background;
     if (this.state.mediaType !== 'video') {
       background =
-      <div className="Image" style={{background: "url(" + this.state.picture + ")"}}>
+      <div className="Image" style={{"background-image": "url(" + this.state.picture + ")"}}>
         <h1> {this.state.title} </h1>
       </div>
     }
@@ -59,7 +59,7 @@ class NasaPic extends Component {
     return(
       <div>
         {background}
-        <div className="ImageCredit"> this beautiful image is only here due to:
+        <div style={{ display: this.state.copyright ? 'block' : 'none' }} className="ImageCredit"> this beautiful image is only here due to:
           <a onClick={this.goToGoogle}>{this.state.copyright} </a>
         </div>
         <div className="ImageDescription">

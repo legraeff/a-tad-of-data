@@ -1,0 +1,10 @@
+a {
+  color: white;
+  cursor: pointer;
+}
+
+small, li {color: white;}
+
+li {
+  list-style: none;
+}
