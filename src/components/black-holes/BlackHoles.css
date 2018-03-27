@@ -2,6 +2,15 @@ a {
   color: white;
   cursor: pointer;
 }
+
+a:hover {
+  color: black;
+}
+
+a.active {
+  color: black;
+}
+
 small {
   color: white;
 }
@@ -18,12 +27,4 @@ li {
   text-align: left;
   position: relative;
   display: inline-block;
-}
-
-.params-container a, .params-container small {
-  color: white;
-}
-
-.results-container {
-
 }
