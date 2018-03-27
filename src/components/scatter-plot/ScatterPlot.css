@@ -1,0 +1,40 @@
+.whiteAxis line{
+  stroke: white;
+}
+
+.whiteAxis path{
+  stroke: white;
+}
+
+.whiteAxis text{
+  fill: white;
+}
+
+.chart-container {
+  display: flex;
+  margin: 50px;
+}
+
+.selected-data-info {
+  background: #884D52;
+  flex: 1 1 0;
+  visibility: hidden;
+  align-self: start;
+  text-align: left;
+  padding: 10px;
+}
+
+circle {
+  fill: white;
+  transition: all .5s;
+}
+
+circle:hover, .active-circle {
+  fill: #884D52;
+}
+
+.selected-data-info p {
+  color: white;
+  font-size: 14px;
+  flex: 1;
+}

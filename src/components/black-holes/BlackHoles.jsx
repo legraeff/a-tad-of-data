@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './BlackHoles.css'; // Tell Webpack that BlackHoles.js uses these styles
-import LineChart from '../line-chart/LineChart.jsx';
+import ScatterPlot from '../scatter-plot/ScatterPlot.jsx';
 import blackHoleData from './blackholeinfo.json';
 
 
@@ -31,17 +31,19 @@ class BlackHoles extends Component {
     return(
       <div>
         <div><small> data collected from <a href="http://142.244.87.173/"> WATCHDOG </a> University of Alberta </small></div>
-        <ul> First parameter
-          <li onClick={() => this.changeFirstParam("distance")}>Distance</li>
-          <li onClick={() => this.changeFirstParam("mass")}>Radius</li>
-          <li onClick={() => this.changeFirstParam("orbitalPeriod")}>Mass</li>
-        </ul>
-        <ul> Second parameter
-          <li onClick={() => this.changeSecondParam("distance")}>Distance</li>
-          <li onClick={() => this.changeSecondParam("mass")}>Radius</li>
-          <li onClick={() => this.changeSecondParam("orbitalPeriod")}>Mass</li>
-        </ul>
-        <LineChart data={this.state.blackHoles} param={[this.state.firstParam, this.state.secondParam]} size={[960,500]}  />
+        <div className="params-container">
+          <ul> <small> Please choose your X-Axis parameter </small>
+            <li onClick={() => this.changeFirstParam("distance")}> <a> Distance(kpc) </a> </li>
+            <li onClick={() => this.changeFirstParam("orbitalPeriod")}> <a> Orbital Period (hours) </a> </li>
+            <li onClick={() => this.changeFirstParam("mass")}> <a> Mass (solar mass )</a> </li>
+          </ul>
+          <ul> <small> Please choose your Y-Axis parameter </small>
+            <li onClick={() => this.changeSecondParam("distance")}> <a> Distance(kpc) </a> </li>
+            <li onClick={() => this.changeSecondParam("orbitalPeriod")}> <a> Orbital Period (hours) </a> </li>
+            <li onClick={() => this.changeSecondParam("mass")}> <a> Mass (solar mass )</a> </li>
+          </ul>
+        </div>
+        <ScatterPlot data={this.state.blackHoles} param={[this.state.firstParam, this.state.secondParam]} size={[700,500]}  />
       </div>
    )
   }
