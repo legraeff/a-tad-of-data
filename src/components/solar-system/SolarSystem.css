@@ -1,0 +1,30 @@
+a {
+  color: white;
+  cursor: pointer;
+}
+
+a:hover {
+  color: black;
+}
+
+a.active {
+  color: black;
+}
+
+small {
+  color: white;
+}
+
+li {
+  list-style: none;
+}
+
+.params-container ul {
+  width: auto;
+  background: #884D52;
+  padding: 5px;
+  margin: 10px;
+  text-align: left;
+  position: relative;
+  display: inline-block;
+}

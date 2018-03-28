@@ -39,3 +39,18 @@ circle:hover, .active-circle {
   font-size: 14px;
   flex: 1;
 }
+
+.chart-tooltip {
+    position: absolute;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 5px 10px;
+    font: 12px sans-serif;
+    background: #884D52;
+    color: white;
+    border: 0px;
+    border-radius: 5px;
+    pointer-events: none;
+    opacity: 0;
+}

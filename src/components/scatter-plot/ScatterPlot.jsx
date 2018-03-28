@@ -4,6 +4,7 @@ import { scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
 import { select } from 'd3-selection';
 import { selectAll } from 'd3-selection';
+import { event } from 'd3-selection';
 import { on } from 'd3-selection';
 import { axisLeft } from 'd3-axis';
 import { axisBottom } from 'd3-axis';
@@ -47,7 +48,7 @@ class ScatterPlot extends Component {
 
     select(".chart-container div")
       .style("visibility", "visible")
-      
+
     select(node)
        .selectAll('circle')
        .data(dataSet)
@@ -77,7 +78,19 @@ class ScatterPlot extends Component {
             .append('p')
             .text(key + ": " + selectedData[key])
         };
-      });
+      })
+      .on("mouseover", function(d) {
+        select(".chart-tooltip")
+          .style("opacity", .9)
+          .text(d[Object.keys(d)[0]])
+          .style("left", (event.pageX) + "px")
+          .style("top", (event.pageY - 28) + "px");
+          })
+      .on("mouseout", function(d) {
+        select(".chart-tooltip")
+          .html('')
+          .style("opacity", 0);
+      });;
 
       select(node)
         .selectAll("g")
@@ -94,6 +107,7 @@ class ScatterPlot extends Component {
          .attr("dy", "-10")
          .attr("text-anchor", "end")
          .text(this.props.param[0]);
+
      select(node)
        .append("g")
         .attr("transform", "translate(" + (margin.bottom) + ",0)")
@@ -119,6 +133,7 @@ class ScatterPlot extends Component {
         <div className="selected-data-info">
           <small> Select a circle to see more information </small>
         </div>
+        <div className="chart-tooltip"> </div>
       </div>
    )
   }
