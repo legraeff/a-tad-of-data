@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import './ScatterPlot.css'; // Tell Webpack that ScatterPlot.js uses these styles
 import { scaleLinear } from 'd3-scale';
 import { max } from 'd3-array';
-import { select } from 'd3-selection';
-import { selectAll } from 'd3-selection';
-import { event } from 'd3-selection';
-import { on } from 'd3-selection';
-import { axisLeft } from 'd3-axis';
-import { axisBottom } from 'd3-axis';
+import { select, selectAll, event, on } from 'd3-selection';
+import { axisLeft, axisBottom } from 'd3-axis';
 import { transition } from 'd3-transition';
 import { extent } from 'd3-array';
 import { json } from 'd3-request';
@@ -29,8 +25,8 @@ class ScatterPlot extends Component {
   createScatterPlot() {
     const node = this.node
     var param = this.props.param;
-    if (!this.props.param[0] || !this.props.param[1]) {
-      console.log("Missing axis attr")
+    if (!this.props.param[0] || !this.props.param[1] || !this.props.data.length) {
+      console.log("Missing axis attr or data")
       return
     }
     var widthOfSvg = this.props.size[0];
@@ -67,19 +63,40 @@ class ScatterPlot extends Component {
        .attr('cx', d => xScale(d[param[0]]) + margin.left)
        .attr('cy', d => yScale(d[param[1]]))
        .attr('r', 5)
-       .on("click", function(){
+       .on("click", function(d){
          selectAll("circle").attr("r", 5).attr("class", "");
          select(this).attr("r", 10).attr("class", "active-circle");
-         selectAll(".chart-container div p")
+         selectAll(".chart-container div .circle-info")
           .remove()
-         var selectedData = select(this).data()[0];
-         for (var key in selectedData) {
+         for (var key in d) {
            select(".chart-container div")
-            .append('p')
-            .text(key + ": " + selectedData[key])
+            .append('div')
+            .html("<strong>" + key + ": </strong><p>" + d[key] +  "</p>")
+            .attr("class", "circle-info")
         };
       })
       .on("mouseover", function(d) {
+        select(node)
+          .append('line')
+          .attr("class", "circle-line")
+          .attr('x1', xScale(d[param[0]]) + margin.left)
+          .attr('x2', xScale(d[param[0]]) + margin.left)
+          .attr('y1', heightOfSvg - margin.bottom)
+          .attr('y2', yScale(d[param[1]]))
+          .attr('stroke', '#884D52')
+          .attr('stroke-dasharray', '1, 5')
+
+        select(node)
+          .append('line')
+          .attr("class", "circle-line")
+          .attr('x1', margin.left)
+          .attr('x2', xScale(d[param[0]]) + margin.left)
+          .attr('y1', yScale(d[param[1]]))
+          .attr('y2', yScale(d[param[1]]))
+          .attr('stroke', '#884D52')
+          .attr('stroke-dasharray', '1, 5')
+
+
         select(".chart-tooltip")
           .style("opacity", .9)
           .text(d[Object.keys(d)[0]])
@@ -87,6 +104,9 @@ class ScatterPlot extends Component {
           .style("top", (event.pageY - 28) + "px");
           })
       .on("mouseout", function(d) {
+        select(node)
+          .selectAll(".circle-line")
+          .remove()
         select(".chart-tooltip")
           .html('')
           .style("opacity", 0);
@@ -131,7 +151,7 @@ class ScatterPlot extends Component {
       <div className="chart-container">
         <svg ref={node => this.node = node} width={this.props.size[0]} height={this.props.size[1]}> </svg>
         <div className="selected-data-info">
-          <small> Select a circle to see more information </small>
+          <p> Select a circle to see more information </p>
         </div>
         <div className="chart-tooltip"> </div>
       </div>

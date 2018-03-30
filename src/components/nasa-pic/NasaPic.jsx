@@ -7,7 +7,7 @@ class NasaPic extends Component {
     this.state = {
       mediaType: '',
       picture: '',
-      copyright: 'a very talented person',
+      copyright: '',
       title: '...',
       explanation: '',
       video: ''
@@ -40,28 +40,33 @@ class NasaPic extends Component {
   }
 
   render() {
-    var background;
-    if (this.state.mediaType !== 'video') {
-      background =
-      <div className="Image" style={{"background-image": "url(" + this.state.picture + ")"}}>
+    var copyright = this.state.copyright;
+    const copyrightDiv = copyright ? (
+      <div className="ImageCredit"> this beautiful image is only here due to:
+        <a onClick={this.goToGoogle}>{this.state.copyright} </a> and
+        <a href="https://apod.nasa.gov/apod/astropix.html">NASA APOC </a>
+      </div>
+    ) : (
+      <div className="ImageCredit"> <a href="https://apod.nasa.gov/apod/astropix.html">NASA APOC </a> </div>
+    );
+
+    const background = (this.state.mediaType !== 'video') ? (
+      <div className="Image" style={{"backgroundImage": "url(" + this.state.picture + ")"}}>
         <h1> {this.state.title} </h1>
       </div>
-    }
-    else {
-      background =
+    ) : (
       <div className="Image" style={{"background": "transparent"}}>
         <h1> {this.state.title} </h1>
         <div className="video-background">
           <iframe src={this.state.video} frameBorder="0" title="videoBackground" allowFullScreen></iframe>
         </div>
       </div>
-    }
+    );
+
     return(
       <div>
         {background}
-        <div style={{ display: this.state.copyright ? 'block' : 'none' }} className="ImageCredit"> this beautiful image is only here due to:
-          <a onClick={this.goToGoogle}>{this.state.copyright} </a>
-        </div>
+        {copyrightDiv}
         <div className="ImageDescription">
           <h2 className="ImageDescriptionTitle"> the science behind </h2>
           <span> {this.state.explanation} </span>

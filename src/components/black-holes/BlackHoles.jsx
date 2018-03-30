@@ -12,39 +12,34 @@ class BlackHoles extends Component {
       firstParam: '',
       secondParam: '',
     }
-    this.changeFirstParam = this.changeFirstParam.bind(this);
-    this.changeSecondParam = this.changeSecondParam.bind(this);
+    this.changeParam = this.changeParam.bind(this);
 
   }
 
   componentDidMount() {
   }
 
-  changeFirstParam(name) {
-    if (this.state.secondParam === name) {
+  changeParam(name) {
+    if (this.state.secondParam === name || this.state.firstParam === name) {
       return
+    }
+    else if (this.state.firstParam && this.state.secondParam) {
+      this.setState({"firstParam": name});
+      return this.setState({"secondParam": undefined});
+    }
+    else if (this.state.firstParam) {
+      return this.setState({"secondParam": name});
     }
     this.setState({"firstParam": name});
   }
 
-  changeSecondParam(name) {
-    if (this.state.firstParam === name) {
-      return
-    }
-    this.setState({"secondParam": name});
-  }
-
-  isFirstParam(name) {
-    if (this.state.firstParam === name) {
+  isParam(name) {
+    if (this.state.firstParam === name || this.state.secondParam === name) {
       return 'active';
     }
   }
 
-  isSecondParam(name) {
-    if (this.state.secondParam === name) {
-      return 'active';
-    }
-  }
+
 
 
   render() {
@@ -52,15 +47,11 @@ class BlackHoles extends Component {
       <div>
         <div><small> data collected from <a href="http://142.244.87.173/"> WATCHDOG </a> University of Alberta </small></div>
         <div className="params-container">
-          <ul> <small> Please choose your Y-Axis parameter </small>
-            <li onClick={() => this.changeSecondParam("distance")}> <a className={this.isSecondParam('distance')}> Distance(kpc) </a> </li>
-            <li onClick={() => this.changeSecondParam("orbitalPeriod")}> <a className={this.isSecondParam('orbitalPeriod')}> Orbital Period (hours) </a> </li>
-            <li onClick={() => this.changeSecondParam("mass")}> <a className={this.isSecondParam('mass')}> Mass (solar mass)</a> </li>
-          </ul>
-          <ul> <small> Please choose your X-Axis parameter </small>
-            <li onClick={() => this.changeFirstParam("distance")}> <a className={this.isFirstParam('distance')}> Distance(kpc) </a> </li>
-            <li onClick={() => this.changeFirstParam("orbitalPeriod")}> <a className={this.isFirstParam('orbitalPeriod')}> Orbital Period (hours) </a> </li>
-            <li onClick={() => this.changeFirstParam("mass")}> <a className={this.isFirstParam('mass')}> Mass (solar mass)</a> </li>
+          <ul>
+            <div> <small> Please choose your parameters: </small></div>
+            <li onClick={() => this.changeParam("distance")}> <a className={this.isParam('distance')}> Distance(kpc) </a> </li>
+            <li onClick={() => this.changeParam("orbitalPeriod")}> <a className={this.isParam('orbitalPeriod')}> Orbital Period (hours) </a> </li>
+            <li onClick={() => this.changeParam("mass")}> <a className={this.isParam('mass')}> Mass (solar mass)</a> </li>
           </ul>
         </div>
         <ScatterPlot data={this.state.blackHoles} param={[this.state.firstParam, this.state.secondParam]} size={[700,500]}  />

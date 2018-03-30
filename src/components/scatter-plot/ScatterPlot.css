@@ -13,6 +13,7 @@
 .chart-container {
   display: flex;
   margin: 50px;
+  flex-wrap: wrap;
 }
 
 .selected-data-info {
@@ -24,6 +25,10 @@
   padding: 10px;
   max-width: 300px;
 }
+.selected-data-info > p {
+  font-size: 14px;
+  margin: 0;
+}
 
 circle {
   fill: white;
@@ -34,10 +39,15 @@ circle:hover, .active-circle {
   fill: #884D52;
 }
 
-.selected-data-info p {
+.circle-info strong {
   color: white;
   font-size: 14px;
-  flex: 1;
+  display: inline;
+}
+.circle-info p {
+  color: white;
+  margin: 0;
+  display: inline
 }
 
 .chart-tooltip {

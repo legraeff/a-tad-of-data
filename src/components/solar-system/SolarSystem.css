@@ -15,9 +15,6 @@ small {
   color: white;
 }
 
-li {
-  list-style: none;
-}
 
 .params-container ul {
   width: auto;
@@ -26,5 +23,16 @@ li {
   margin: 10px;
   text-align: left;
   position: relative;
-  display: inline-block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: initial;
+}
+.params-container div {
+  flex-basis: 100%;
+}
+
+.params-container ul li {
+  list-style: none;
+  flex-basis: 25%;
+  flex-shrink: 1;
 }
