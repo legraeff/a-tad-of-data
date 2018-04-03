@@ -40,12 +40,16 @@ class BarChart extends Component {
     var attribute = this.props.attr;
     var sizeOfData = this.dataArray.length;
     var widthOfSvg = this.props.size[0];
-    var padding = 20;
+    var padding = 30;
     widthOfSvg = widthOfSvg - padding * sizeOfData;
     var widthOfBar = widthOfSvg / sizeOfData;
     var yScale = scaleLinear()
         .domain([0, max(this.dataArray, function(d) { return d[attribute]; })])
         .range([0, this.props.size[1]])
+
+    select(".bar-chart-container")
+      .style("width", '100%')
+      .select(this.parentNode)
 
     select(node)
        .selectAll('rect')
@@ -67,7 +71,7 @@ class BarChart extends Component {
        .transition().duration(750)
        .attr('y', d => this.props.size[1] - yScale(d[attribute]))
        .attr('height', d => yScale(d[attribute]))
-       .attr('width', widthOfBar)
+       .attr('width', widthOfBar / 4);
 
     select(node)
         .selectAll('text')
@@ -84,7 +88,7 @@ class BarChart extends Component {
     select(node)
         .selectAll('text')
         .data(this.dataArray)
-        .style('fill', '#fff')
+        .style('fill', '#fff').style('font-size', '12px')
         .attr('x', (d,i) => (i * widthOfBar) + (i * padding))
         .attr('y', d => this.props.size[1])
         .transition().duration(750)
@@ -97,7 +101,9 @@ class BarChart extends Component {
 
     render() {
     return(
-      <svg ref={node => this.node = node} width={this.props.size[0]} height={this.props.size[1]}> </svg>
+      <div className="bar-chart-container">
+        <svg ref={node => this.node = node} width={this.props.size[0]} height={this.props.size[1]}> </svg>
+      </div>
    )
   }
 }
