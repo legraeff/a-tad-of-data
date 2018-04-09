@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './ScatterPlot.css'; // Tell Webpack that ScatterPlot.js uses these styles
 import { scaleLinear } from 'd3-scale';
-import { max } from 'd3-array';
-import { select, selectAll, event, on } from 'd3-selection';
+import { select, selectAll, event } from 'd3-selection';
 import { axisLeft, axisBottom } from 'd3-axis';
-import { transition } from 'd3-transition';
 import { extent } from 'd3-array';
-import { json } from 'd3-request';
 
 class ScatterPlot extends Component {
   constructor(props) {

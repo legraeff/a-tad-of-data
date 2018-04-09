@@ -1,0 +1,38 @@
+a {
+  color: white;
+  cursor: pointer;
+}
+
+a:hover {
+  color: black;
+}
+
+a.active {
+  color: black;
+}
+
+small {
+  color: white;
+}
+
+
+.params-container ul {
+  width: auto;
+  background: #884D52;
+  padding: 5px;
+  margin: 10px;
+  text-align: left;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: initial;
+}
+.params-container div {
+  flex-basis: 100%;
+}
+
+.params-container ul li {
+  list-style: none;
+  flex-basis: 25%;
+  flex-shrink: 1;
+}

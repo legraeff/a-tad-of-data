@@ -1,0 +1,214 @@
+[
+  {
+    "Name": "Sun",
+    "Values": [
+      {
+        "Element": "Hydrogen",
+        "Percentage": 71
+      },
+      {
+        "Element": "Helium",
+        "Percentage": 26
+      },
+      {
+        "Element": "Other",
+        "Percentage": 3
+      }
+    ]
+  },
+  {
+    "Name": "Mercury",
+    "Values": [
+      {
+        "Element": "Oxygen",
+        "Percentage": 42
+      },
+      {
+        "Element": "Sodium",
+        "Percentage": 22
+      },
+      {
+        "Element": "Hydrogen",
+        "Percentage": 22
+      },
+      {
+        "Element": "Helium",
+        "Percentage": 6
+      },
+      {
+        "Element": "Other",
+        "Percentage": 8
+      }
+    ]
+  },
+  {
+    "Name": "Mars",
+    "Values": [
+      {
+        "Element": "Carbon Dioxide",
+        "Percentage": 95
+      },
+      {
+        "Element": "Nitrogen",
+        "Percentage": 2.7
+      },
+      {
+        "Element": "Argon",
+        "Percentage": 1.6
+      },
+      {
+        "Element": "Other",
+        "Percentage": 0.7
+      }
+    ]
+  },
+  {
+    "Name": "Moon",
+    "Values": [
+      {
+        "Element": "Argon",
+        "Percentage": 70
+      },
+      {
+        "Element": "Sodium",
+        "Percentage": 1
+      },
+      {
+        "Element": "Helium",
+        "Percentage": 29
+      }
+    ]
+  },
+  {
+    "Name": "Venus",
+    "Values": [
+      {
+        "Element": "Carbon Dioxide",
+        "Percentage": 96
+      },
+      {
+        "Element": "Nitrogen",
+        "Percentage": 4
+      }
+    ]
+  },
+  {
+    "Name": "Earth",
+    "Values": [
+      {
+        "Element": "Nitrogen",
+        "Percentage": 78
+      },
+      {
+        "Element": "Oxygen",
+        "Percentage": 21
+      },
+      {
+        "Element": "Argon",
+        "Percentage": 1
+      },
+      {
+        "Element": "Other",
+        "Percentage": 1
+      }
+    ]
+  },
+  {
+    "Name": "Jupiter",
+    "Values": [
+      {
+        "Element": "Hydrogen",
+        "Percentage": 89.8
+      },
+      {
+        "Element": "Helium",
+        "Percentage": 10.2
+      }
+    ]
+  },
+  {
+    "Name": "Saturn",
+    "Values": [
+      {
+        "Element": "Hydrogen",
+        "Percentage": 96.3
+      },
+      {
+        "Element": "Helium",
+        "Percentage": 3.2
+      },
+      {
+        "Element": "Other",
+        "Percentage": 0.5
+      }
+    ]
+  },
+  {
+    "Name": "Titan",
+    "Values": [
+      {
+        "Element": "Nitrogen",
+        "Percentage": 97
+      },
+      {
+        "Element": "Methane",
+        "Percentage": 2
+      },
+      {
+        "Element": "Other",
+        "Percentage": 1
+      }
+    ]
+  },
+  {
+    "Name": "Uranus",
+    "Values": [
+      {
+        "Element": "Methane",
+        "Percentage": 2.3
+      },
+      {
+        "Element": "Hydrogen",
+        "Percentage": 82.5
+      },
+      {
+        "Element": "Helium",
+        "Percentage": 15.2
+      }
+    ]
+  },
+  {
+    "Name": "Neptune",
+    "Values": [
+      {
+        "Element": "Methane",
+        "Percentage": 1
+      },
+      {
+        "Element": "Hydrogen",
+        "Percentage": 80
+      },
+      {
+        "Element": "Helium",
+        "Percentage": 19
+      }
+    ]
+  },
+  {
+    "Name": "Pluto",
+    "Values": [
+      {
+        "Element": "Carbon Dioxide",
+        "Percentage": 8
+      },
+      {
+        "Element": "Nitrogen",
+        "Percentage": 90
+      },
+      {
+        "Element": "Methane",
+        "Percentage": 2
+      }
+    ]
+  }
+]
